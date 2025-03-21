@@ -19,12 +19,13 @@ function carregaBotao (jogo) {
 function mudaEstadoDoBotao(botao, jogo) {
   const elementoJogo = document.getElementById(`game-${jogo}`);
   const nomeDoJogo = elementoJogo.querySelector(".dashboard__item__name");
+  const elementoImagem = elementoJogo.querySelector(".dashboard__item__img");
   const imagemJogo = elementoJogo.querySelector(".dashboard__item__img img");
 
   if (botao.innerHTML === "Alugar") {
     
     botao.classList.add("dashboard__item__button--return");
-    imagemJogo.classList.add("dashboard__item__img--rented");
+    elementoImagem.classList.add("dashboard__item__img--rented");
     botao.textContent = "Devolver";
     jogosAlugados.push({
       jogo: jogo,
@@ -36,10 +37,10 @@ function mudaEstadoDoBotao(botao, jogo) {
     
     if (confirmarDevolucao()) {
     botao.classList.remove("dashboard__item__button--return");
-    imagemJogo.classList.remove("dashboard__item__img--rented");
+    elementoImagem.classList.remove("dashboard__item__img--rented");
     botao.textContent = "Alugar";
     }
-    
+
   }
   numeroDeJogosAlugados(jogosAlugados);
 }
